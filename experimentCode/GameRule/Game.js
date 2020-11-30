@@ -115,7 +115,7 @@ var Game = {
   // DB STUFF
   idParticipant: -1,
   //#######################################################################
-  conditionExperiment: 3,  //##########################################
+  conditionExperiment: 1,  //##########################################
   //#########################################################################################
   sessionID: -1,
   prolificID: -1,
@@ -338,7 +338,11 @@ var Game = {
 
   getCategoriesByCondition: function () {
     console.log(" in categories get " + Game.conditionExperiment)
-    Game.categoriesByCondition = [Category.HOSTILE, Category.NEUTRAL, Category.ASSUMED_FRIEND, Category.ASSUMED_HOSTILE, Category.UNKNOWN, Category.FRIEND]
+    if (Game.conditionExperiment === 1 || Game.conditionExperiment === 4) {
+      Game.categoriesByCondition = [Category.HOSTILE, Category.NEUTRAL, Category.UNKNOWN, Category.FRIEND]
+    } else {
+      Game.categoriesByCondition = [Category.HOSTILE, Category.NEUTRAL, Category.ASSUMED_FRIEND, Category.ASSUMED_HOSTILE, Category.UNKNOWN, Category.FRIEND]
+    }
   },
 
   loadCondition: function () {
@@ -1049,20 +1053,31 @@ var Game = {
 
   getMapping: function () {
     // n categories mapped to m colours
-    if (Game.conditionExperiment === 1 || Game.conditionExperiment === 3) { // assumed=hollow
+    if (Game.conditionExperiment === 1 || Game.conditionExperiment === 4) { // control_green
+      Game.mapping['' + Category.UNKNOWN] = Colour.GRAY
+      Game.mapping['' + Category.FRIEND] = Colour.GREEN
+      Game.mapping['' + Category.HOSTILE] = Colour.RED
+      Game.mapping['' + Category.NEUTRAL] = Colour.BLUE
+      Game.mapping ['' + Category.ASSUMED_FRIEND] = Colour.GREEN
+      Game.mapping ['' + Category.ASSUMED_HOSTILE] = Colour.RED
+    } else if (Game.conditionExperiment === 2 || Game.conditionExperiment === 5) { // categorical_green
+      colorsControl = [Colour.YELLOW, Colour.PURPLE]
+      Game.mapping['' + Category.UNKNOWN] = Colour.GRAY
+      Game.mapping['' + Category.FRIEND] = Colour.GREEN
+      Game.mapping['' + Category.HOSTILE] = Colour.RED
+      Game.mapping['' + Category.NEUTRAL] = Colour.BLUE
+
+      coloursCopy = colorsControl.map((x) => x)
+      coloursCopy = Game.shuffleArray(coloursCopy)
+      Game.mapping ['' + Category.ASSUMED_FRIEND] = coloursCopy[0]
+      Game.mapping ['' + Category.ASSUMED_HOSTILE] = coloursCopy[1]
+    } else if (Game.conditionExperiment === 3 || Game.conditionExperiment === 6) { // pictorial_green
       Game.mapping['' + Category.UNKNOWN] = Colour.GRAY
       Game.mapping['' + Category.FRIEND] = Colour.GREEN
       Game.mapping['' + Category.HOSTILE] = Colour.RED
       Game.mapping['' + Category.NEUTRAL] = Colour.BLUE
       Game.mapping['' + Category.ASSUMED_FRIEND] = Colour.C_GREEN
       Game.mapping['' + Category.ASSUMED_HOSTILE] = Colour.C_RED
-    } else if (Game.conditionExperiment === 2 || Game.conditionExperiment === 4) { // certain=hollow
-      Game.mapping['' + Category.UNKNOWN] = Colour.GRAY
-      Game.mapping['' + Category.FRIEND] = Colour.C_GREEN
-      Game.mapping['' + Category.HOSTILE] = Colour.C_RED
-      Game.mapping['' + Category.NEUTRAL] = Colour.BLUE
-      Game.mapping['' + Category.ASSUMED_FRIEND] = Colour.GREEN
-      Game.mapping['' + Category.ASSUMED_HOSTILE] = Colour.RED
     }
 
     for (var key in Game.mapping) {

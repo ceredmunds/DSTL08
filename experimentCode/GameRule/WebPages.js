@@ -42,6 +42,12 @@ var WebPages = {
       'Further, we hope to see that performance improves when there are more of the uncertain entities.   ' +
       '<br/><br/><br/><b>please email c.edmunds at qmul.ac.uk if you have any questions </b><br/><br/><br/><br/>',
 
+  condition1Intro: "<br/>In the following you will see 4 types of entity or craft: <br/> <br/>" +
+    "<b>Friendly</b> craft are those belonging to allies.   <br/>" +
+    "<b>Hostile</b> craft are those belonging to enemies.  <br/>" +
+    "<b>Neutral</b> craft are those who are neither friendly nor enemies and are not relevant to any possible conflict (such as fishing boats or pleasure craft).   <br/>" +
+    "<b>Unknown</b> craft are those whose status is not yet known. They might turn out to be friendly, hostile or neutral.  <br/> <br/>",
+
   condition2Intro:"<br/>In the following you will see 6 types of entity or craft: <br/> <br/>" +
       "<b>Friendly</b> craft are those belonging to allies. <br/>" +
       "<b>Assumed friendly</b> craft are those we think belong to allies, but we are not sure.<br/>" +

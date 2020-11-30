@@ -10,7 +10,12 @@ TrialsRatio.init()
 
 Game.getCategoriesByCondition();
 entitiesUILabel = Game.categoriesByCondition.map(x => " " + Category.getUILabel(x));
-intro = WebPages.condition2Intro
+
+if (Game.conditionExperiment === 1 || Game.conditionExperiment === 4) {
+  intro = WebPages.condition1Intro
+} else {
+  intro = WebPages.condition2Intro
+}
 
 // console.log("Condition "+ Game.conditionExperiment);
 var json = {
