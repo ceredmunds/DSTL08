@@ -1,4 +1,4 @@
-var sourceLoader={
+var sourceLoader = {
     sources:{},
     sourceNum:0,
     loadedNum:0,

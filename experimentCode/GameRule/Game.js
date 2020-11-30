@@ -115,7 +115,7 @@ var Game = {
   // DB STUFF
   idParticipant: -1,
   //#######################################################################
-  conditionExperiment: 1,  //##########################################
+  conditionExperiment: 4,  //##########################################
   //#########################################################################################
   sessionID: -1,
   prolificID: -1,
@@ -297,10 +297,9 @@ var Game = {
     sourceLoader.load("img", Game.CDN + "img/military/aBlueTraining.png", "c_blueTraining");
 
     // Map
-    sourceLoader.load("img", Game.CDN + "img/qmul/prueba1.png", "Map_Grass");
+    sourceLoader.load("img", Game.CDN + "img/qmul/prueba1.png", "Map_Grass")
 
     // Extra
-
     sourceLoader.load("img", Game.CDN + "img/Bg/qmul-logo.png", "GameWin");
     sourceLoader.load("img", Game.CDN + "img/Bg/qmul-logo.png", "GameLose");
 
@@ -316,9 +315,10 @@ var Game = {
   },
 
   start: function () {
-    Game.layerSwitchTo("GameStart");
-    $('div.panel_Map').hide();
-    $('div.panel_Control').hide();
+    Game.layerSwitchTo("GameStart")
+    $('div.panel_Map').hide()
+    $('div.panel_Control').hide()
+
     var level = Game.conditionExperiment;
     if (Game.inTraining) {
       $('div.panel_Info').show();
@@ -396,6 +396,8 @@ var Game = {
 
       $('div.warning_Box').hide();
       $('div.smith_Box').html("Smith's Turn").hide()
+      $('canvas[name="radar"]').hide()
+
       Game.loadCondition();
       Game.expandUnitProps();
       Game.freeze = true;
@@ -407,6 +409,12 @@ var Game = {
       $('div.smith_Box').html("<p>Smith's Turn</p>").show()
       $('div.panel_Info').hide();
 
+      if (Game.conditionExperiment >= 4) {
+        $('canvas[name="radar"]').show()
+      } else {
+        $('canvas[name="radar"]').hide()
+      }
+
       Game.updateEntities();
 
       Game.intervalTrialSmith();
@@ -415,6 +423,13 @@ var Game = {
 
       $('div.warning_Box').hide();
       $('div.panel_Info').hide();
+
+      if (Game.conditionExperiment >= 4) {
+        $('canvas[name="radar"]').show()
+      } else {
+        $('canvas[name="radar"]').hide()
+      }
+
       console.log("Game.play Performance")
       Game.updateEntities();
       Game.intervalTrialSmith();
@@ -527,8 +542,8 @@ var Game = {
       return desc.toLowerCase()
 
     }
-  }
-  ,
+  },
+
   draw: function (chara) {
     //Can draw units and no-rotate bullets
     if (!(chara instanceof Gobj)) return;//Will only show Gobj
