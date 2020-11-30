@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<?php
+$ParticipantId = $_GET['PROLIFIC_PID'] ;
+$SessionId =  $_GET['SESSION_ID'];
+?>
+<html>
+<head>
+    <title>Participation ended</title>
+    <meta charset="UTF-8"/>
+
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <link rel="stylesheet" href="Survey/Survey.css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+</head>
+
+<body>
+
+<div id="GamePlay" class="GameLayer" >
+    <div class="panel_Info" id="panel_Info">
+
+    </div>
+
+    <div class="warning_Box"></div>
+    <div class="message_Box"></div>
+    Click 'c' to toogle between Debug Window
+    <div class="debug_Box">
+        <span class="debug">
+                    <span></span><br/>
+                    <span></span><br/>
+                    <span></span><br/>
+                    <span></span><br/>
+                </span>
+    </div>
+</div>
+<div id="Farewell" class="GameLayer">
+    <div id='textoBye'>
+
+        Dear participant, thank you very much for your participation in this online study If after completion of this
+        study you have
+        any questions or concerns regarding this experiment,
+        <br/> you might contact at all times the test leader by email to:
+        <br/>
+        <br/>
+        <br/>cedmunds@qmul.ac.uk
+        <br/>
+        <button type="button" onclick="Game.finish()">
+            Click here to complete your participation!
+        </button>
+        <br/> ;
+
+    </div>
+</div>
+
+<div id="IntroSurvey">
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
+</div>
+<script src="Utils/jquery.min.js"></script>
+<script src="https://surveyjs.azureedge.net/1.0.10/survey.jquery.min.js"></script>
+<script src="Survey/SurveyDebrief.js"></script>
+
+<script>
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+</script>
+
+
+</body>
+
+</html>

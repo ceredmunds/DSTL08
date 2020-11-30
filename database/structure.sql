@@ -39,6 +39,34 @@ CREATE TABLE IF NOT EXISTS `participantmonitoring` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `participantmonitoring_secondround`
+--
+
+DROP TABLE IF EXISTS `participantmonitoring_secondround`;
+CREATE TABLE IF NOT EXISTS `participantmonitoring_secondround` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `trials` longtext CHARACTER SET utf8 COLLATE utf8_bin,
+  `replay` longtext NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `participantmonitoring_thirdround`
+--
+
+DROP TABLE IF EXISTS `participantmonitoring_thirdround`;
+CREATE TABLE IF NOT EXISTS `participantmonitoring_thirdround` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `trials` longtext CHARACTER SET utf8 COLLATE utf8_bin,
+  `replay` longtext NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `participantpractice`
 --
 
