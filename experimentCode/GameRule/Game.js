@@ -238,24 +238,12 @@ var Game = {
   },
 
   getScriptedTrials: function () {
-    if (Game.conditionExperiment === 1 || Game.conditionExperiment === 2) {
-      var randomTrialPath = Game.randomIntFromInterval(0, TrialsRatio.trialsRatio15.length - 1)
-      var completeTrialPath = TrialsRatio.trialsRatio15[randomTrialPath]
+    var randomTrialPath = Game.randomIntFromInterval(0, TrialsRatio.trialsRatio15.length - 1)
+    var completeTrialPath = TrialsRatio.trialsRatio15[randomTrialPath]
 
-      Game.trialPath1 = completeTrialPath.slice(0, (completeTrialPath.length / 3))
-      Game.trialPath2 = completeTrialPath.slice((completeTrialPath.length / 3), 2 * (completeTrialPath.length / 3))
-      Game.trialPath3 = completeTrialPath.slice(-(completeTrialPath.length / 3))
-
-      // Game.scriptShortVersion = TrialsRatio.set1_ratio15[randomShort]
-      // Game.scriptLongVersion = TrialsRatio.set2_ratio15[randomLong]
-    } else if (Game.conditionExperiment === 3 || Game.conditionExperiment === 4) {
-      var randomTrialPath = Game.randomIntFromInterval(0, TrialsRatio.trialsRatio12.length - 1)
-      var completeTrialPath = TrialsRatio.trialsRatio12[randomTrialPath]
-
-      Game.trialPath1 = completeTrialPath.slice(0, (completeTrialPath.length / 3))
-      Game.trialPath2 = completeTrialPath.slice((completeTrialPath.length / 3), 2 * (completeTrialPath.length / 3))
-      Game.trialPath3 = completeTrialPath.slice(-(completeTrialPath.length / 3))
-    }
+    Game.trialPath1 = completeTrialPath.slice(0, (completeTrialPath.length / 3))
+    Game.trialPath2 = completeTrialPath.slice((completeTrialPath.length / 3), 2 * (completeTrialPath.length / 3))
+    Game.trialPath3 = completeTrialPath.slice(-(completeTrialPath.length / 3))
   },
 
   init: function () {
