@@ -30,8 +30,8 @@ var Game = {
   inFeedbackTraining: false,
   trainingDuration: 25000000,
   maxTrainingTrials: 100,
-  lastNTrainingTrials: 3,
-  correctLastNTrainingTrials: 2,
+  lastNTrainingTrials: 10,
+  correctLastNTrainingTrials: 8,
   trainingStreak: '',
   trialTrainingResult: {},
   inTraining: false,
@@ -46,7 +46,7 @@ var Game = {
   inPractice: false,
   practiceTrial: 0,
   numStimuliTraining: 6,
-  maxPracticeTrial: 1, // test rapid
+  maxPracticeTrial: 3, // test rapid
   categoriesRemaining: [],
 
   freeze: false,
@@ -62,7 +62,7 @@ var Game = {
   trialPerformanceResult: {},
   inPerformance: false,
   performanceTrial: 0,
-  maxPerformanceTrial: 2,
+  maxPerformanceTrial: 30,
   performanceFirstRound: false,
   performanceSecondRound: false,
   performanceThirdRound: false,
@@ -115,7 +115,7 @@ var Game = {
   // DB STUFF
   idParticipant: -1,
   //#######################################################################
-  conditionExperiment: 4,  //##########################################
+  conditionExperiment: 1,  //##########################################
   //#########################################################################################
   sessionID: -1,
   prolificID: -1,
@@ -1022,7 +1022,7 @@ var Game = {
           console.log('%c Starting Performance session! ', 'background: #aaaacc; color: 99ffdd');
           //important, we need to use the cc provided by Prolific
 
-          window.location.href = 'https://app.prolific.co/submissions/complete?cc=3014DD2E';//HOOK
+          window.location.href = 'https://app.prolific.co/submissions/complete?cc=71F139EE';//HOOK
           // window.location.href = 'https://';//HOOK
         },
         error: function (xhr, ajaxOptions, thrownError) {
