@@ -49,8 +49,10 @@ data[, completed_by:= vapply(str_split(data$completed_by,"_"), `[`, 1, FUN.VALUE
 
 # Reorder
 setcolorder(data, c("id_participant", "condition", "uncertaintyCondition", "backgroundCondition", 
-                    "experiment_phase", "trial", "correct", 
+                    "experiment_phase", "round", "trial", "correct", 
                     "completed_by", "reaction_time", "category", "category_selected", 
                     "category_id", "category_selected_id"))
+
+data <- data[order(id_participant),]
 
 fwrite(data, "../data/DSTL08longData.csv")
