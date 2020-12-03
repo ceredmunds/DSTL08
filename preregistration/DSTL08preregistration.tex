@@ -10,11 +10,11 @@
 \usepackage{amsmath} % For \text{} function 
 \usepackage{setspace}
 
-\title{Looking at bumping up uncertainty and effects of background.}
+\title{Effects of uncertainty and background in a maritime military themed change detection task.}
 \shorttitle{DSTL08}
 
 \author{Charlotte E. R. Edmunds, Adam Harris, Magda Osman}
-\affiliation{Queen Mary, UCL, University of London \\ 26 November 2020}
+\affiliation{Queen Mary, UCL, University of London \\ 1 December 2020}
 
 %\leftheader{Edmunds}
 
@@ -28,9 +28,10 @@
 
 \section{Method}
 \subsection{Participants}
-Based on the previous experiment, we recruited 480 participants through Prolific Academic, 80 participants per condition. 
-Due to the particulars of the task, we did not not recruit participants that are colour blind. 
-Participants were paid \pounds1.50 for their participation. 
+Based on the previous experiment, we will recruit 480 participants through Prolific Academic, 80 participants per condition. 
+Due to the particulars of the task, we will not recruit participants that are colour blind. 
+Additionally, we will limit the age of participants to between 18 and 65 years old. 
+Participants will be paid \pounds1.50 for their participation. 
 
 Exclusions will aim to remove those participants that are either bots or failed to concentrate. 
 Participants will also be excluded if they fail to reach the criterion on the categorisation training task. 
@@ -38,20 +39,20 @@ If participants fail to successfully learn the categorisation task, they will no
 This fact will be made explicit in the advert on Prolific Academic and in the consent form. 
 
 \subsection{Materials}
-This experiment was run online using JavaScript. 
+This experiment will be run online using JavaScript. 
 
 \subsection{Design}
-The experiment had a 3 (Uncertainty presentation: Control, Categorical, Uncertainty) by 2 (Background: Black, Radar) between-subjects design. 
-Participants viewed one of the uncertainty presentation condition displayed on one of two background: either black as in Experiments DSTL02 and DSTL03 or black with a green radar-esque rings (as shown in Figure~\ref{fig:radar}). 
+The experiment will have a 3 (Uncertainty presentation: Control, Categorical, Uncertainty) by 2 (Background: Black, Radar) between-subjects design. 
+Participants will view one of the uncertainty presentation condition displayed on one of two background: either black as in Experiments DSTL02 and DSTL03 or black with a green radar-esque rings (as shown in Figure~\ref{fig:radar}). 
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/radar.jpg}
-	\caption{}
+	\caption{The background used in the radar background condition.}
 	\label{fig:radar}
 \end{figure}
 
-There were three types of uncertainty presentation:
+There are three types of uncertainty presentation:
 \begin{enumerate}
 	\item In the control condition, there will be four categories of entities: Unknown, Friendly, Hostile and Neutral.\\
 	\item In the categorical condition, there will be six categories of entities: Unknown, Friendly, Assumed Friendly, Hostile, Assumed Hostile and Neutral. The Assumed- and Certain- versions of a categorisation (e.g. Friendly) will be different colours. 
@@ -67,27 +68,27 @@ The entities will be circles that are either grey or one of five colours.
 The grey circle will have a brightness of 60\%, rgb(153, 153, 153). 
 The colours will all be of equal saturation (60) and brightness (90). 
 They will be presented in six colours: red (H360, rgb(230, 92, 92)), yellow (H72, rgb(202, 230, 92)), green (H144, rgb(92, 230, 147)), blue (H216, rgb(92, 147, 230)), and purple (H288, rgb(202, 92, 229)).
-
-Across all conditions, Hostile will be red, Unknown yellow, Friendly green and Neutral blue. 
+Across all conditions, Hostile will be red, and Unknown will be yellow. 
+In the Blue conditions, Friendly will be blue and Neutral green. 
+In the Green conditions, Friendly will be green and Neutral blue. 
 In the categorical condition, Assumed Friendly and Assumed Hostile will be randomly assigned to grey and purple. 
 In the uncertainty condition, Assumed Friendly and Assumed Hostile will be an unfilled circle the same colour as Friendly and Hostile entities respectively. 
 
 \subsection{Procedure}
 
-The experiment presents coloured circles moving on a black background, $800px$ square. 
+The experiment presents coloured circles moving in a $800px$ square. 
 The experiment has two phases: categorisation training and the monitoring task.
-The categorisation training phase remains unchanged from DSTL02.  
 
 \subsubsection{Categorisation training}
 In this section, participants will learn which colour is associated with which label. 
 The instructions for this task are displayed below. 
-On each trial, a single stimulus was shown, on a black background. 
-The order of the stimuli shown was pseudo-randomised: for each block of four or six stimuli (depending on the condition) participants saw all the possible stimuli in a random order. 
-Along the top of the screen, buttons were displayed showing the available options (either four or six depending on the condition). 
-To respond participants clicked on the appropriate option and then received feedback for one second. 
-If they respond correctly, the feedback read ``Correct'' in white plus a reinstatement of the correct answer in white e.g. ``It was a friendly craft.'' 
-If they respond incorrectly, the feedback read ``Incorrect'' in white plus the correct answer in white e.g. ``It was a friendly craft.''
-Compared to the first experiment, we made the feedback all white rather than prime people with the idea that green/red represents positive/negative results respectively.
+On each trial, a single stimulus will be shown, on a black background. 
+The order of the stimuli shown will be pseudo-randomised: for each block of four or six stimuli (depending on the condition) participants will see all the possible stimuli in a random order. 
+Along the top of the screen, buttons will be displayed showing the available options (either four or six depending on the condition). 
+To respond participants click on the appropriate options and then receive feedback for one second. 
+If they respond correctly, the feedback reads ``Correct'' in white plus a reinstatement of the correct answer in white e.g. ``It was a friendly craft.'' 
+If they respond incorrectly, the feedback reads ``Incorrect'' in white plus the correct answer in white e.g. ``It was a friendly craft.''
+Compared to previous experiments, we made the feedback all white rather than prime people with the idea that green/red represents positive/negative results respectively.
 Feedback will be displayed for 1500ms.
 Between trials, there was blank screen shown for 500ms. 
 The trial will time out after 5 seconds. 
@@ -98,31 +99,31 @@ If participants fail to reach the learning criteria within 100 trials, they will
 Participants who fail this stage will not be paid. 
 
 \subsubsection{Monitoring task}
-At the beginning of the experiment, 24 entities were (uniform) randomly placed in the box. 
+At the beginning of the experiment, 24 entities will be (uniform) randomly placed in the box. 
 To program movement, each entity will be associated with a coordinate within the viewing area or in a 50 pixels wide frame surrounding the viewing area. 
 Entities move towards those points at a rate of 50 pixels per second.
 The associated points change every 2000ms or if the entity reaches the point, whichever occurs first. 
 At this point, for the x-coordinates, a number is sampled from a uniform distribution between 0 and 1.
 If the sampled number is less than or equal to 0.33, the x coordinate will move to the left, if it is greater than or equal to 0.66 it will move to the right, otherwise the x-coordinate will remain the same. 
-A similar sampling process occured for the y-coordinate, but with up and down as appropriate. 
+A similar sampling process occurs for the y-coordinate, but with up and down as appropriate. 
 
-Entities were not allowed to collide and they will be able to ``wrap,'' i.e. an entity leaving the left portion of the screen will reappear on the right.
+Entities will not be allowed to collide and they will be able to ``wrap,'' i.e. an entity leaving the left portion of the screen will reappear on the right.
 To prevent entities being half visible on opposite edges of the screen, there is an invisible border around the viewing window 50px wide, in which the stimulus can wrap. 
 
-On most of the trials, one entity changed from one category/colour to another. 
+On most of the trials, one entity will change from one category/colour to another. 
 On the remaining five trials in each within-subject condition, there will be no change of category/colour. 
-The participants' task was to identify which entity changed, and click on that entity. 
-Responses and reaction times were collected. 
-There was a variable inter-trial interval. 
-The trial time-outed if participants took more than five seconds to make a response. 
+The participants' task will be to identify which entity changed, and click on that entity. 
+Responses and reaction times will be collected. 
+There is a variable inter-trial interval. 
+A trial will time-out if participants take more than five seconds to make a response. 
 
-Additionally, participants were told that they are sharing this monitoring task with another trainee seaman called ``Smith.'' 
-This was in order to provide a cover story for why they are unable to respond during the inter-trial interval. 
+Additionally, participants will be told that they are sharing this monitoring task with another trainee seaman called ``Smith.'' 
+This is in order to provide a cover story for why they are unable to respond during the inter-trial interval. 
 Participants will be notified whether it was their go or Smith's by a banner reading ``You'' or ``Smith'' as appropriate. 
 
-Please see Table~\ref{table:trialTypes} for a full breakdown of the trial types.
-In short, if the information in that trial type was in any way uncertain, it is five times as likely to change than if the information is not uncertain. 
-Just prior to the monitoring phase of the experiment, participants will be given a short taster of 3 trials, with only 6 craft in view, so they can get used to the controls and how to respond. 
+Please see Table~\ref{table:trialTypes} for a full breakdown. 
+In short, if the information in that trial type is in any way uncertain, it is five times as likely to change than if the information is not uncertain. 
+Just prior to this phase of the experiment, participants will be given a short taster of 3 trials, with only 6 craft in view, so they can get used to the controls and how to respond. 
 The trials in this experiment will be split into three blocks, each with 30 trials, with an ability to take a break in between. 
 
 \begin{table}[t!]
@@ -150,6 +151,26 @@ The trials in this experiment will be split into three blocks, each with 30 tria
 		\bottomrule 
 	\end{tabular}
 \end{table}
+
+\section{Analysis}
+\subsection{Categorisation}
+We aim to conduct two 3 (uncertainty presentation: control, categorical, uncertainty) x 2 (background: black, radar) between subjects ANOVAs: one on the number of trials it take each participant to reach criterion and the other on the mean reaction time of participants' responses. 
+We will check whether the data violates assumptions of normality and if so, try to transform the data so it is more normally distributed.
+On previous similar experiments this involved squaring the number of trials to criteria so we expect to have to do this again. 
+
+\subsection{Practice}
+We do not expect to analyse this data. 
+
+\subsection{Monitoring}
+We aim to conduct two 3 (uncertainty presentation: control, categorical, uncertainty) x 2 (background: black, radar) between subjects ANOVAs: one on mean accuracy and the other on the mean reaction time of participants' responses. 
+Accuracy in this experiment phase will be defined as correct if on a change trial the participant clicked on the correct entity or if on an apparent no change trial they withheld their response (this later condition is only appropriate in the control condition). 
+The remaining trials will be defined as incorrect. 
+
+We will exclude both accuracy and reaction time outliers. 
+We defined outliers as those participants who scored lower than the first quartile minus 1.5 times the interquartile range or who scored greater than the third quartile plus 1.5 the interquartile range in that condition. 
+
+
+
 
 \clearpage
 \newpage
