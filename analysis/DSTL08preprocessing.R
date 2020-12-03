@@ -12,6 +12,14 @@ pptData <- fread('../data/DSTL08demographics.csv')
 
 data <- data[id_participant %in% unique(pptData$id_participant),]
 
+# Summary table
+table(pptData$condition_exp)
+
+# Exclusions: 1 x Technical issues
+remove <- pptData[prolific_id=="5b7ffeeb05fbbd00016aa0bc", id_participant]
+pptData <- pptData[!id_participant %in% remove,]
+data <- data[!id_participant %in% remove,]
+
 # Tidying data -------------------------------------------------------------------------------------
 # Set column names
 setnames(data, c("type", "condition_experiment", "category_learning_trial", "trial_no_change"), 

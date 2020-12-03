@@ -115,7 +115,7 @@ var Game = {
   // DB STUFF
   idParticipant: -1,
   //#######################################################################
-  conditionExperiment: 3,  //##########################################
+  conditionExperiment: 4,  //##########################################
   //#########################################################################################
   sessionID: -1,
   prolificID: -1,
@@ -1537,14 +1537,17 @@ var Game = {
         return true;
       }
       catFromTo = "";
-      if (Game.isPerformanceRoundOne) {
-        console.log(Game.trialPath1[Game.performanceTrial])
-        catFromTo = Game.trialPath1[Game.performanceTrial].split("|")
-      } else {
+
+      if (Game.performanceFirstRound && Game.performanceSecondRound && Game.performanceThirdRound) {
+        catFromTo = Game.trialPath3[Game.performanceTrial].split("|")
+        console.log(Game.trialPath3[Game.performanceTrial])
+      } else if (Game.performanceFirstRound && Game.performanceSecondRound && !Game.performanceThirdRound) {
         catFromTo = Game.trialPath2[Game.performanceTrial].split("|")
         console.log(Game.trialPath2[Game.performanceTrial])
+      } else if (Game.performanceFirstRound && !Game.performanceSecondRound && !Game.performanceThirdRound) {
+        console.log(Game.trialPath1[Game.performanceTrial])
+        catFromTo = Game.trialPath1[Game.performanceTrial].split("|")
       }
-
 
       Game.trial_description = catFromTo;
 
