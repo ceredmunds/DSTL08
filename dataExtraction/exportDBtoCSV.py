@@ -11,7 +11,7 @@ host = "localhost:3306"
 username = "root"
 password = "root"
 dbname = "dstl"
-mysqlServer = 'mysql+pymysql://root:root@localhost:3306/dstl'
+mysqlServer = 'mysql+pymysql://root:root@localhost:3306/test_db'
 
 # mysqlServer ='mysql+pymysql://'+username+':'+password+'@'+host+'/'+dbname
 # mysqlServer = 'mysql+pymysql://root:@localhost:3308/dstlProlific'
