@@ -15,10 +15,10 @@ data <- data[id_participant %in% unique(pptData$id_participant),]
 # Summary table
 table(pptData$condition_exp)
 
-# Exclusions: 2 x Technical issues "5e3df34cfb9ed506f1028bb5"
-remove <- pptData[prolific_id=="5b7ffeeb05fbbd00016aa0bc", id_participant]
-pptData <- pptData[!id_participant %in% remove,]
-data <- data[!id_participant %in% remove,]
+# # Exclusions: 2 x Technical issues "5e3df34cfb9ed506f1028bb5"
+# remove <- pptData[prolific_id=="5b7ffeeb05fbbd00016aa0bc", id_participant]
+# pptData <- pptData[!id_participant %in% remove,]
+# data <- data[!id_participant %in% remove,]
 
 # Tidying data -------------------------------------------------------------------------------------
 # Set column names

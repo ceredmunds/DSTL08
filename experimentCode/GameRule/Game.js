@@ -115,7 +115,7 @@ var Game = {
   // DB STUFF
   idParticipant: -1,
   //#######################################################################
-  conditionExperiment: 4,  //##########################################
+  conditionExperiment: 1,  //##########################################
   //#########################################################################################
   sessionID: -1,
   prolificID: -1,
@@ -1550,7 +1550,6 @@ var Game = {
       }
 
       Game.trial_description = catFromTo;
-
 
       if (catFromTo[0] === "0") { //case no change intended
         console.log("NO CHANGE")
