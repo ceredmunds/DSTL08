@@ -104,7 +104,7 @@ Entities move towards those points at a rate of 50 pixels per second.
 The associated points change every 2000ms or if the entity reaches the point, whichever occurs first. 
 At this point, for the x-coordinates, a number is sampled from a uniform distribution between 0 and 1.
 If the sampled number is less than or equal to 0.33, the x coordinate will move to the left, if it is greater than or equal to 0.66 it will move to the right, otherwise the x-coordinate will remain the same. 
-A similar sampling process occured for the y-coordinate, but with up and down as appropriate. 
+A similar sampling process occurred for the y-coordinate, but with up and down as appropriate. 
 
 Entities were not allowed to collide and they will be able to ``wrap,'' i.e. an entity leaving the left portion of the screen will reappear on the right.
 To prevent entities being half visible on opposite edges of the screen, there is an invisible border around the viewing window 50px wide, in which the stimulus can wrap. 
@@ -150,6 +150,103 @@ The trials in this experiment will be split into three blocks, each with 30 tria
 		\bottomrule 
 	\end{tabular}
 \end{table}
+
+\section{Results}
+\subsection{Categorisation}
+Generally, the proportion of timeouts appeared fewer in the control conditions than the other uncertainty conditions (see Figure~\ref{fig:DSTL03CLboxplotTrialsCriterion}). 
+However, the proportion of timeouts does not seem to be affected by background condition. 
+
+\begin{figure}[b!]
+	\centering
+	\includegraphics{images/DSTL08CLhistogramTimeouts}
+	\caption{Proportion of timeouts in the category learning phase.}
+	\label{fig:DSTL08CLhistogramTimeouts}
+\end{figure}
+
+\subsubsection{Trials to criterion.}
+To judge learning speed, we looked at the number of trials it took for participants to reach the learning criterion (see Figure~\ref{fig:DSTL08CLboxplotTrialsCriterion}).
+As the data violated assumptions of normality (Shapiro-Wilk, $W=0.66$, $p<.001$) and homogeneity of variance (Levene's Test, $F(5, 474)=11.96$, $p<.001$), we conducted a between-subjects ANOVA on the squared number of trials to criteria. 
+We found that there was a significant main effect of uncertainty presentation conditions, $F(2, 474)=20.60$, $BF=1.63 \times 10^{17}$, $p<.001$. 
+Looking at the pairwise comparisons with Tukey HSD, participants in the categorical conditions took significantly longer to learn than those in both the control ($p_{adj}<.001$) and uncertainty conditions ($p_{adj}<.001$). 
+The difference between the control and uncertainty conditions was not significant ($p=.464$). 
+There was not a main effect of background condition, $F(1, 474)=0.05$, $BF=0.11$,$p=.825$, where participants took longer to learn in the blue conditions than the green conditions. 
+The interaction did not reach significance, $F(2,474)=0.18$, $BF=0.05$, $p=.839$. 
+
+\begin{figure}[t!]
+	\centering
+	\includegraphics[width=\textwidth]{images/DSTL08CLboxplotTrialsCriterion}
+	\caption{Number of trials to criterion in the category learning phase.}
+	\label{fig:DSTL08CLboxplotTrialsCriterion}
+\end{figure}
+
+\subsubsection{Reaction time.}
+Next, we looked at the reactions times (see Figure~\ref{fig:DSTL08CLboxplotRT}).
+The data violated assumptions of normality (Shapiro-Wilk, $W=0.97$, $p<.001$), however, on inspection of the Q-Q plot the data appeared reasonably normal so we proceeded with untransformed data. 
+We found a main effect of uncertainty presentation on reaction time, $F(2, 474)=38.83$, $BF=1.2\times 10^{13}$, $p<.001$. 
+Looking at the pairwise comparisons with Tukey HSD, participants in the control conditions were faster to respond than those in the categorical ($p<.001$) and uncertainty ($p<.001$) conditions. 
+The difference between categorical and uncertainty conditions also reached significance ($p=.013$).
+The main effect of background did not reach significance, $F(1, 474)=0.69$,  $BF=0.13$, $p=.408$. 
+However, the interaction did reach significance, $F(1, 474)=6.49$, $BF=14.87$, $p=.002$.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{images/DSTL08CLboxplotRT.pdf}	
+	\caption{Reaction time in the category learning phase.}
+	\label{fig:DSTL08CLboxplotRT}
+\end{figure}
+
+\subsection{Change detection}
+\subsubsection{Accuracy}
+In this section, we report analyses examining the effect of uncertainty presentation on accuracy. 
+Trials were defined as correct if on a change trial the participant clicked on the correct entity or if on a no change trial they withheld their response. 
+The remaining trials were defined as incorrect. 
+
+The distributions of participants' mean accuracies are shown in Figure~\ref{fig:DSTL08MboxplotAccuracy}. 
+We defined outliers as those participants who scored lower than the first quartile minus 1.5 times the interquartile range or who scored greater than the third quartile plus 1.5 the interquartile range. 
+This resulted in us excluding two participant from the control-radar condition. 
+
+An ANOVA found a significant main effect of uncertainty presentation, $F(2,472)=101.27$, $BF_{10}=3.72 \times 10^{34}$, $p<.001$. 
+Looking at the post-hoc pairwise comparisons, corrected using the Tukey method, we see that accuracy in the control condition, $M_\text{control}=0.27$, was significantly lower than the uncertainty condition, $M_\text{uncertainty}=0.53$, $t(472)=12.82$, $SE=0.02$, $p<.001$.
+Similarly,  participants in the uncertainty conditions performed significantly better than those in the categorical conditions, $M_\text{categorical}=0.28$, $t(472)=12.37$, $SE=0.02$, $p<.001$. 
+There was no significant difference between the control and categorical conditions,  $t(472)=0.48$, $SE=0.02$, $p=.879$. 
+There was also a main effect of background, $F(1, 472)= 14.75$, $BF_{10}=12.58$, $p<.001$.
+Participants were more accurate when the background was black, $M_\text{black}=0.39$, $SE=0.01$, than with the radar, $M_\text{radar}=0.33$, $SE=0.01$. 
+The interaction between uncertainty presentation and colour did not reach significance, $F(2, 472)=0.28$, $BF_{10}=0.05$, $p=.756$. 
+
+\begin{figure}[t!]
+	\centering
+	\includegraphics[width=\textwidth]{images/DSTL08MboxplotAccuracy}
+	\caption{Boxplots of mean accuracy scores by conditions. }
+	\label{fig:DSTL08MboxplotAccuracy}
+\end{figure}
+
+\subsubsection{Reaction time} 
+Looking at timeouts, there were more timeouts in the control condition than the other conditions (see Figure~\ref{fig:DSTL08MboxplotTimeouts}).
+Generally, participants had more timeouts in the control condition than than the other conditions. 
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.9\textwidth]{images/DSTL08MboxplotTimeouts}
+	\caption{Boxplots of number of timeouts in the monitoring task across conditions.}
+	\label{fig:DSTL08MboxplotTimeouts}
+\end{figure}
+
+The mean reaction times are shown in Figure~\ref{fig:DSTL03MboxplotRT}. 
+We removed the outliers shown in the graph: two from the control-black condition, two from the control-radar, three from the categorical-radar, three from the uncertainty-black and three from the uncertainty-radar.  
+
+An ANOVA found that the main effect of uncertainty presentation condition was significant, $F(2, 461)= 9.04$, $BF_{10}=105.05$, $p<.001$. 
+Looking at the post-hoc pairwise comparisons, corrected using the Tukey method, we see that reaction time in the control condition, $M_\text{control}=1516ms$, was significantly slower than the uncertainty condition, $M_\text{uncertainty}=1383ms$, $t(461)=2.73$, $SE=49.0$, $p=.018$.
+Similarly,  participants in the uncertainty conditions performed significantly faster than those in the categorical conditions, $M_\text{categorical}=1588ms$, $t(461)=4.20$, $SE=48.9$, $p<.001$. 
+There was no significant difference between the control and categorical conditions,  $t(461)=1.47$, $SE=48.8$, $p=.309$. 
+The main effect of background was not significant, $F(1, 461)=1.56$, $BF_{10}=0.21$, $p=.213$; 
+nor the interaction, $F(2, 461)=0.80$, $BF_{10}=0.09$, $p=.448$. 
+
+\begin{figure}[bh!]
+	\centering	
+	\includegraphics[width=\textwidth]{images/DSTL08MboxplotRT}
+	\caption{Boxplots of mean reaction times by conditions.}
+	\label{fig:DSTL08MboxplotRT}
+\end{figure}
 
 \clearpage
 \newpage

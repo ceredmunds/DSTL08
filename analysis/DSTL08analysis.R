@@ -45,7 +45,7 @@ ggplot(clSummary, aes(x=trialsToCriterion, fill=uncertaintyCondition)) +
   labs(x="Trials to criterion", y="Count") +
   scale_fill_viridis(discrete=T) +
   theme_bw()
-ggsave("../techReport/images/DSTL03CLhistogramTrialsCriterion.pdf", units="in", width=6, height=3)
+# ggsave("../techReport/images/DSTL03CLhistogramTrialsCriterion.pdf", units="in", width=6, height=3)
 
 clSummary$condition <- factor(clSummary$condition, 
                               levels=c("control_black", "control_radar", 
@@ -68,6 +68,40 @@ ggsave("../techReport/images/DSTL08CLboxplotTrialsCriterion.pdf", units="in", wi
 cl.criterion.aov <- aov(trialsToCriterion ~ uncertaintyCondition*backgroundCondition, data=clSummary)
 summary(cl.criterion.aov)
 
+# Checking ANOVA assumptions
+# Checking homogeneity of variance
+plot(cl.criterion.aov, 1)
+
+# Levene's test for homogeneity of variance
+leveneTest(trialsToCriterion ~ uncertaintyCondition*backgroundCondition, data=clSummary)
+
+# Check normality
+plot(cl.criterion.aov, 2)
+
+# Extract the residuals
+aov_residuals <- residuals(object = cl.criterion.aov )
+
+# Run Shapiro-Wilk test
+shapiro.test(x = aov_residuals )
+
+# Transform trials to criterion
+clSummary[,trTrialsToCriterion:=trialsToCriterion^2]
+
+# Re-do anova
+cl.criterion.aov <- aov(trTrialsToCriterion ~ uncertaintyCondition*backgroundCondition, data=clSummary)
+summary(cl.criterion.aov)
+
+emmeans(cl.criterion.aov, ~ backgroundCondition)
+
+means.cl.criterion <- emmeans(cl.criterion.aov, ~ uncertaintyCondition*backgroundCondition)
+means.cl.criterion
+
+cl.criterion.bf <-  anovaBF(trialsToCriterion ~ uncertaintyCondition*backgroundCondition, data=clSummary)
+cl.criterion.bf
+cl.criterion.bf[4]/cl.criterion.bf[3]
+
+# Multiple pairwise comparisons
+TukeyHSD(cl.criterion.aov)
 
 # Category learning: RTs ---------------------------------------------------------------------------
 # Histogram of reaction times 
@@ -91,6 +125,35 @@ ggsave("../techReport/images/DSTL08CLboxplotRT.pdf", units="in", width=7, height
 # Is reaction time affected by condition?
 cl.rt.aov <- aov(meanRT ~ uncertaintyCondition*backgroundCondition, data=clSummary)
 summary(cl.rt.aov)
+
+# Checking anova assumptions
+# Checking homogeneity of variance
+plot(cl.rt.aov, 1)
+
+# Levene's test for homogeneity of variance
+leveneTest(meanRT ~ uncertaintyCondition*backgroundCondition, data=clSummary)
+
+# Check normality
+plot(cl.rt.aov, 2)
+
+# Extract the residuals
+aov_residuals <- residuals(object = cl.rt.aov )
+
+# Run Shapiro-Wilk test
+shapiro.test(x = aov_residuals )
+
+# Multiple pairwise comparisons
+TukeyHSD(cl.rt.aov)
+
+# Get means
+emmeans(cl.rt.aov, ~ uncertaintyCondition)
+
+means.cl.rt <- emmeans(cl.rt.aov, ~ condition)
+means.cl.rt
+
+cl.rt.bf <-  anovaBF(meanRT ~ uncertaintyCondition*backgroundCondition, data=clSummary)
+cl.rt.bf
+cl.rt.bf[4]/cl.rt.bf[3]
 
 # Monitoring ---------------------------------------------------------------------------------------
 mData <- data[experiment_phase=="monitoring", 
@@ -137,12 +200,18 @@ ggplot(mSummary, aes(x=condition, y=meanAccuracy, fill=uncertaintyCondition,
   theme_bw()
 ggsave("../techReport/images/DSTL08MboxplotAccuracy.pdf", units="in", width=7, height=3.5)
 
+# Removing outliers
+outliers <- boxplot(meanAccuracy ~ condition, data=mSummary)$out
+mSummary <- mSummary[!(meanAccuracy>0.66 & condition=="control_radar"),]
+mSummary$id_participant <- factor(mSummary$id_participant)
+
 # Is accuracy affected by condition?
 m.acc.aov <- aov(meanAccuracy ~ uncertaintyCondition*backgroundCondition, 
                  data=mSummary)
 summary(m.acc.aov)
 
 emmeans(m.acc.aov, specs = pairwise ~ uncertaintyCondition)
+emmeans(m.acc.aov, specs = pairwise ~ backgroundCondition)
 
 m.acc.bf <-  anovaBF(meanAccuracy ~ uncertaintyCondition*backgroundCondition, 
                      data=mSummary, whichModels="bottom")
@@ -170,13 +239,18 @@ ggplot(mSummary, aes(x=condition, y=meanRT, fill=uncertaintyCondition,
   theme_bw()
 ggsave("../techReport/images/DSTL08MboxplotRT.pdf", units="in", width=7, height=3.5)
 
+# Removing outliers
+outliers <- boxplot(meanRT ~ condition, data=mSummary)$out
+mSummary <- mSummary[-which(meanRT %in% outliers),]
+mSummary$id_participant <- factor(mSummary$id_participant)
+
 # Monitoring: reaction time: ANOVA -----------------------------------------------------------------
 # Is reaction time affected by condition?
 m.rt.aov <- aov(meanRT ~ uncertaintyCondition*backgroundCondition, 
                 data=mSummary)
 summary(m.rt.aov)
 
-emmeans(m.rt.aov, specs = pairwise ~ condition)
+emmeans(m.rt.aov, specs = pairwise ~ uncertaintyCondition)
 
 m.rt.bf <-  anovaBF(meanRT ~ uncertaintyCondition*backgroundCondition, 
                     data=mSummary, whichRandom="id_participant", whichModels="bottom")
